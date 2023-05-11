@@ -19,19 +19,19 @@ dotfiles="https://github.com/grm34/Hyprwwland-dotfiles"
 # Usage.
 printf -v usage '%s\n' "
   # From USB Live
-  Install Arch Linux base:      bash arch6tem install base
+  Install Arch Linux base:      bash leckss6tem install base
   
   # From Arch Linux
-  Install AUR Helper:           bash arch6tem install aur_helper
-  Install Firmware Modules:     bash arch6tem install firmware_modules
-  Install Sound System:         bash arch6tem install sound_system
-  Install Intel GPU Drivers:    bash arch6tem install intel_gpu_drivers
-  Install Window Manager:       bash arch6tem install window_manager
-  Install Multimedia Support:   bash arch6tem install multimedia_support
-  Install Fonts and Themes:     bash arch6tem install fonts_themes
-  Install User Applications:    bash arch6tem install user_apps
-  Install Dev Tools:            bash arch6tem install dev_tools
-  Install Dotfiles:             bash arch6tem install dotfiles"
+  Install AUR Helper:           bash leckss6tem install aur_helper
+  Install Firmware Modules:     bash leckss6tem install firmware_modules
+  Install Sound System:         bash leckss6tem install sound_system
+  Install Intel GPU Drivers:    bash leckss6tem install intel_gpu_drivers
+  Install Window Manager:       bash leckss6tem install window_manager
+  Install Multimedia Support:   bash leckss6tem install multimedia_support
+  Install Fonts and Themes:     bash leckss6tem install fonts_themes
+  Install User Applications:    bash leckss6tem install user_apps
+  Install Dev Tools:            bash leckss6tem install dev_tools
+  Install Dotfiles:             bash leckss6tem install dotfiles"
 
 ###################
 # Arch Linux Base #
@@ -106,13 +106,13 @@ base() {
   chroot "passwd"
   printf '\n%s' "Enter a password for $user !"
   chroot "passwd $user"
-  cp arch6tem /mnt/home/"$user"/arch6tem
-  chroot "chown $user:$user /home/$user/arch6tem"
+  cp leckss6tem /mnt/home/"$user"/leckss6tem
+  chroot "chown $user:$user /home/$user/leckss6tem"
 
   # Reboot.
   umount -R /mnt
   swapoff "$swap"
-  printf '\n%s\n' "arch6tem: successful installation (reboot)"
+  printf '\n%s\n' "leckss6tem: successful installation (reboot)"
 }
 
 ####################
@@ -224,7 +224,7 @@ dotfiles() {
 }
 
 ################
-# Run arch6tem #
+# Run leckss6tem #
 ################
 
 case "$@" in
