@@ -50,7 +50,7 @@ base() {
   swapon "$swap"
 
   # Install base system.
-  pacstrap -K /mnt base base-devel linux linux-firmware
+  pacstrap /mnt base base-devel linux linux-firmware
   genfstab -U /mnt >> /mnt/etc/fstab
   chroot() { arch-chroot /mnt /bin/bash -c "$@"; }
 
