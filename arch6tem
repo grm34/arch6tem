@@ -199,7 +199,7 @@ fonts_themes() {
 
 user_apps() {
   paru --needed -S\
-    alacritty zellij nushell starship zoxide htop btop\
+    alacritty zellij nushell starship vivid zoxide htop btop\
     helix felix-rs chafa most git-delta bat bandwhich exa\
     feh gimp librewolf-bin zathura zathura-pdf-mupdf vlc\
     wayfarer gajim-git himalaya
