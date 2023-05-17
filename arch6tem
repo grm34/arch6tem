@@ -25,6 +25,7 @@ printf -v usage '%s\n' "
   # From Arch Linux
   Install AUR Helper:           bash arch6tem install aur_helper
   Install Firmware Modules:     bash arch6tem install firmware_modules
+  Install Core Utilities:       bash arch6tem install core_utilities
   Install Sound System:         bash arch6tem install sound_system
   Install Intel GPU Drivers:    bash arch6tem install intel_gpu_drivers
   Install Window Manager:       bash arch6tem install window_manager
@@ -136,6 +137,10 @@ firmware_modules() {
     /etc/mkinitcpio.conf
 }
 
+core_utilities() {
+  paru --needed -S uutils-coreutils
+}
+
 sound_system() {
   sudo pacman --noconfirm --needed -S\
     pipewire pipewire-audio pipewire-alsa\
@@ -241,6 +246,7 @@ case "$@" in
   "install base") base ;;
   "install aur_helper") aur_helper ;;
   "install firmware_modules") firmware_modules ;;
+  "install core_utilities") core_utilities ;;
   "install sound_system") sound_system ;;
   "install intel_gpu_drivers") intel_gpu_drivers ;;
   "install window_manager") window_manager ;;
