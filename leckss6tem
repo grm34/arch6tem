@@ -205,7 +205,7 @@ user_apps() {
     helix felix-rs chafa most git-delta bat bandwhich exa\
     feh gimp librewolf-bin zathura zathura-pdf-mupdf\
     wayfarer gajim-git himalaya gnupg pass hyprpicker\
-    hyperfine
+    hyperfine sniffnet filezilla
 }
 
 android_support() {
