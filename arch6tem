@@ -5,6 +5,7 @@ set -e
 
 # Configuration.
 user="keyzer"
+email="keyzer@no6tem.work"
 host="arch6tem"
 timezone="Europe/Paris"
 lang="en_US.UTF-8"
@@ -30,6 +31,7 @@ printf -v usage '%s\n' "
   Install Multimedia Support:   bash arch6tem install multimedia_support
   Install Fonts and Themes:     bash arch6tem install fonts_themes
   Install User Applications:    bash arch6tem install user_apps
+  Install Android Support:      bash arch6tem install android_support
   Install Dev Tools:            bash arch6tem install dev_tools
   Install Dotfiles:             bash arch6tem install dotfiles"
 
@@ -138,7 +140,7 @@ sound_system() {
   sudo pacman --noconfirm --needed -S\
     pipewire pipewire-audio pipewire-alsa\
     pipewire-pulse pipewire-jack wireplumber\
-    pulsemixer
+    pulsemixer myxer-bin
 }
 
 intel_gpu_drivers() {
@@ -161,7 +163,7 @@ window_manager() {
   paru --needed -S\
     hyprland eww-wayland dunst libnotify libcanberra\
     wl-clipboard cliphist swayidle swaylock-effects-git\
-    grim slurp hyprshot light duf jq neofetch hyprpaper\
+    grim slurp hyprshot light duf jaq neofetch hyprpaper\
     qt5-wayland qt6-wayland xdg-desktop-portal-hyprland\
     gtk3 gtk4 nwg-look-bin qt5ct qt6ct fuzzel
   printf '%s' "
@@ -184,7 +186,7 @@ multimedia_support() {
   sudo pacman --noconfirm --needed -S\
     ffmpeg gstreamer gsound gst-libav gst-plugins-base\
     gst-plugins-good gst-plugins-bad gst-plugins-ugly\
-    mediainfo
+    mediainfo mpv
 }
 
 fonts_themes() {
@@ -201,8 +203,14 @@ user_apps() {
   paru --needed -S\
     alacritty zellij nushell starship vivid zoxide htop btop\
     helix felix-rs chafa most git-delta bat bandwhich exa\
-    feh gimp librewolf-bin zathura zathura-pdf-mupdf vlc\
-    wayfarer gajim-git himalaya
+    feh gimp librewolf-bin zathura zathura-pdf-mupdf\
+    wayfarer gajim-git himalaya gnupg pass hyprpicker\
+    hyperfine
+}
+
+android_support() {
+  paru --needed -S\
+    android-sdk-platform-tools android-file-transfer
 }
 
 dev_tools() {
@@ -220,6 +228,9 @@ dotfiles() {
   chsh -s /bin/nu
   systemctl --user enable --now himalaya.service
   systemctl --user enable --now himalaya-watch.service
+  gpg --full-gen-key
+  pass init "$user"
+  pass insert "$email"
 }
 
 ################
@@ -236,6 +247,7 @@ case "$@" in
   "install multimedia_support") multimedia_support ;;
   "install fonts_themes") fonts_themes ;;
   "install user_apps") user_apps ;;
+  "install android_support") android_support ;;
   "install dev_tools") dev_tools ;;
   "install dotfiles") dotfiles ;;
   *) printf '%s' "$usage"
