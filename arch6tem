@@ -156,13 +156,13 @@ intel_gpu_drivers() {
 
 window_manager() {
   # Including:
-  # - desktop widgets
-  # - desktop notifications
-  # - primary clipboard
-  # - system idle
+  # - widgets
+  # - notifications
+  # - clipboard
+  # - idle manager
   # - screen capture
   # - brightness control
-  # - desktop wallpapers
+  # - wallpaper manager
   # - GUI support (GTK/Qt)
   # - app launcher
   paru --needed -S\
